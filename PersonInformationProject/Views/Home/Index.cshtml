@@ -1,0 +1,78 @@
+﻿@model Person
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container mt-3">
+    <header>
+
+        <nav class="navbar navbar-dark navbar-expand-md bg-warning">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                   
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+
+
+
+    </header>
+
+    <main>
+        <div class="container p-0">
+            <table class="table table-bordered table-hover mt-3">
+                <thead class="bg-success text-white">
+                    <tr>
+                        <td>İsim</td>
+                        <td>Soyisim</td>
+                        <td>Email</td>
+                        <td>Telefon</td>
+                        @foreach(var adres in Model.Adresses)
+                        {
+                            <td>Adress</td>
+                        }
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>@Model.Name</td>
+                   
+
+                    
+                        <td>@Model.Surname</td>
+                  
+
+                  
+                        <td>@Model.Email</td>
+                  
+
+                   
+                        <td>@Model.Telephone</td>
+
+                        @foreach(var adressler in Model.Adresses)
+                        { 
+                            <td>@adressler.Content  @adressler.City/@adressler.District</td>
+                        }
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </main>
+</div>
+
