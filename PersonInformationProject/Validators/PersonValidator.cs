@@ -9,10 +9,14 @@ namespace PersonInformationProject.Validators
 {
     public class PersonValidator:AbstractValidator<Person>
     {
+        private string mesaj = "{PropertyName} alanı boş geçilemez";
         public PersonValidator()
         {
-            RuleFor(x => x.Email).NotEmpty().WithMessage("{PropertyName } alanı boş geçilemez").EmailAddress().WithMessage("@ işareti olmalıdır.");
-            RuleFor(x => x.Name).NotEmpty().WithMessage("{PropertyName} alanı boş geçilemez");
+            RuleFor(x => x.Email).NotEmpty().WithMessage(mesaj).EmailAddress().WithMessage("@ işareti olmalıdır.");
+            RuleFor(x => x.Name).NotEmpty().WithMessage(mesaj);
+            RuleFor(x => x.Surname).NotEmpty().WithMessage(mesaj);
+            RuleFor(x => x.Telephone).NotEmpty().WithMessage(mesaj);
+            RuleForEach(x => x.Adresses).SetValidator(new AdressValidator());
         }
     }
 }

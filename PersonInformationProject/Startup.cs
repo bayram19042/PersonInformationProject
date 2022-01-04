@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 
 using PersonInformationProject.Repository;
+using FluentValidation.AspNetCore;
 
 namespace PersonInformationProject
 {
@@ -27,6 +28,10 @@ namespace PersonInformationProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddFluentValidation(opt=>
+            {
+                opt.RegisterValidatorsFromAssemblyContaining<Startup>();
+            });
             services.AddDbContext<AppDbContext>(opt =>
             {
                 object p = opt.UseSqlServer("server=(localdb)\\MSSQLLocalDB; database = PersonDB;Integrated Security=True;");
@@ -36,6 +41,7 @@ namespace PersonInformationProject
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IUow, Uow>();
             services.AddAutoMapper(typeof(Startup));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

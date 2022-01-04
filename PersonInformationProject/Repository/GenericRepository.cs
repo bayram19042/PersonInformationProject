@@ -25,5 +25,7 @@ namespace PersonInformationProject.Repository
         {
             return await _context.Set<T>().AsNoTracking().ToListAsync();
         }
+
+       
     }
 }

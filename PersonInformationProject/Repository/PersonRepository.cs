@@ -21,9 +21,12 @@ namespace PersonInformationProject.Repository
             return await _context.Persons.Include(x => x.Adresses).SingleOrDefaultAsync(x => x.Id == personId);
         }
 
-        public async Task<Person> GetAllWithAdress()
+        public async Task<List<Person>> GetAllWithAdress()
         {
-            return await _context.Persons.Include(x => x.Adresses).AsNoTracking().SingleOrDefaultAsync();
+            return await _context.Persons.Include(x => x.Adresses).AsNoTracking().ToListAsync();
         }
+
+
+
     }
 }

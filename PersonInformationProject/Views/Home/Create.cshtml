@@ -1,0 +1,96 @@
+﻿@model Person
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container mt-3">
+
+    <form method="post" asp-action="Create" asp-controller="Home">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="@Model.Name">Name</label>
+                <input class="form-control" asp-for="@Model.Name">
+                <span class="text-danger" asp-validation-for="@Model.Name"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="@Model.Surname">Surname</label>
+                <input class="form-control" asp-for="@Model.Surname">
+                <span  asp-validation-for="@Model.Surname" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="@Model.Email">Email</label>
+                <input type="email" class="form-control" asp-for="@Model.Email" placeholder="Email">
+                <span asp-validation-for="@Model.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="@Model.Telephone">Telephone</label>
+                <input class="form-control" asp-for="@Model.Telephone">
+                <span asp-validation-for="@Model.Telephone" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="">Address</label>
+            <input type="text" class="form-control" asp-for="@Model.Adresses[0].Content">
+            <span asp-validation-for="@Model.Adresses[0].Content" class="text-danger"></span>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="">City</label>
+                <input type="text" class="form-control" asp-for="@Model.Adresses[0].City">
+                <span asp-validation-for="@Model.Adresses[0].City" class="text-danger" ></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="">District</label>
+                <input type="text" class="form-control" asp-for="@Model.Adresses[0].District">
+                <span asp-validation-for="@Model.Adresses[0].District" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="">PostCode</label>
+                <input type="text" class="form-control" asp-for="@Model.Adresses[0].Postcode">
+                <span asp-validation-for="@Model.Adresses[0].Postcode" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="">Address2</label>
+            <input type="text" class="form-control" asp-for="@Model.Adresses[1].Content">
+            <span asp-validation-for="@Model.Adresses[1].Content" class="text-danger" ></span>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="">City</label>
+                <input type="text" class="form-control" asp-for="@Model.Adresses[1].City">
+                <span asp-validation-for="@Model.Adresses[1].City" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="">District</label>
+                <input type="text" class="form-control" asp-for="@Model.Adresses[1].District">
+                <span asp-validation-for="@Model.Adresses[1].District" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="">PostCode</label>
+                <input type="text" class="form-control" asp-for="@Model.Adresses[1].Postcode">
+                <span asp-validation-for="@Model.Adresses[1].Postcode" class="text-danger"></span>
+            </div>
+        </div>
+
+
+
+
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+
+</div>
+

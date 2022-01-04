@@ -8,6 +8,7 @@ namespace PersonInformationProject.Interfaces
     public interface IRepository<T> where T:class
     {
         Task<List<T>> GetAll();
+        
         Task CreateAsync(T entity);
     }
 }
