@@ -23,7 +23,9 @@ namespace PersonInformationProject.Repository
 
         public async Task<List<Person>> GetAllWithAdress()
         {
-            return await _context.Persons.Include(x => x.Adresses).AsNoTracking().ToListAsync();
+            return await _context.Persons.Include(x => x.Adresses)
+                .Include(x=>x.Products)
+                .AsNoTracking().ToListAsync();
         }
 
 

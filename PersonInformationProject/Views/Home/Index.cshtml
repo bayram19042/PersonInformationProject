@@ -1,4 +1,4 @@
-﻿@model List<Person>
+﻿@model List<PersonList>
 @{
     ViewData["Title"] = "Index";
 }
@@ -71,10 +71,14 @@
                    
                         <td>@personList.Telephone</td>
 
-                        @foreach (var adressler in personList.Adresses)
+                       
+                        
+                        @foreach(var content in personList.AdressesContent)
                         {
-                            <td>@adressler.Content  @adressler.City/@adressler.District</td>
+                            <td> @content;</td>
                         }
+                        
+                       
                     </tr>
                     }
                 </tbody>

@@ -13,6 +13,7 @@ namespace PersonInformationProject.Controllers
 {
     public class HomeController : Controller
     { // test
+
         private readonly IValidator<Person> _validator;
         private readonly IMapper _mapper;
         private readonly IRepository<Person> _repository;
@@ -29,17 +30,20 @@ namespace PersonInformationProject.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var list = await _personRepository.GetAllWithAdress();
-           
-                return View(list); 
-            
+         
+
+             var list = await _personRepository.GetAllWithAdress();
+            var dto = _mapper.Map<List<PersonList>>(list);
+
+            return View(dto);
+
         }
 
-        public  IActionResult Create()
+        public IActionResult Create()
         {
-            
 
-            return  View(new Person());
+
+            return View(new Person());
 
         }
 
@@ -47,7 +51,7 @@ namespace PersonInformationProject.Controllers
         public async Task<IActionResult> Create(Person person)
         {
             var validate = _validator.Validate(person);
-            if(validate.IsValid)
+            if (validate.IsValid)
             {
                 await _personRepository.CreateAsync(person);
                 await _uow.Commit();
@@ -57,7 +61,7 @@ namespace PersonInformationProject.Controllers
             {
                 return View(person);
             }
-           
+
 
         }
 

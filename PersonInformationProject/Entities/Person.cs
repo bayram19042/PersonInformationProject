@@ -17,6 +17,8 @@ namespace PersonInformationProject.Entities
         public string Email { get; set; }
         public int Telephone { get; set; }
         public List<Adress> Adresses { get; set; }
+        public Product Products { get; set; }
+
 
     }
 }

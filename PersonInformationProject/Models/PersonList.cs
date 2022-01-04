@@ -12,11 +12,15 @@ namespace PersonInformationProject.Models
         public string Surname { get; set; }
         public string Email { get; set; }
         public int Telephone { get; set; }
-        public List<string> Content { get; set; }
-        public List<string> City { get; set; }
-        public List<string> District { get; set; }
-        public List<int> Postcode { get; set; }
-       
+        public string ProductsName { get; set; }
+        public string ProductsDestinition { get; set; }
+        public List<string> AdressesContent { get; set; }
+        public List<string> AdressesCity { get; set; }
+        public List<string> AdressesDistrict { get; set; }
+        public List<int> AdressesPostcode { get; set; }
+
+
+
 
     }
 }
