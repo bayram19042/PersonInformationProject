@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace PersonInformationProject.Controllers
 {
     public class HomeController : Controller
-    {
+    { // test
         private readonly IValidator<Person> _validator;
         private readonly IMapper _mapper;
         private readonly IRepository<Person> _repository;
